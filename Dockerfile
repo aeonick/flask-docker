@@ -3,13 +3,12 @@
 FROM alpine:latest
 MAINTAINER Colin <admin@skyin.win>
 
-RUN apk add --no-cache python2
-RUN apk add --no-cache py2-pip
-RUN apk add --no-cache py-mysqldb
-RUN apk add --no-cache py2-gevent
+RUN apk add --no-cache python3
+RUN apk add --no-cache py3-pip
+RUN apk add --no-cache py3-gevent
 
 RUN mkdir -p /www
-RUN pip install --no-cache-dir Flask gunicorn
+RUN pip3 install --no-cache-dir Flask gunicorn pymysql
 
 WORKDIR /www
 EXPOSE 8000
